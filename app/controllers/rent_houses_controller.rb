@@ -76,6 +76,6 @@ class RentHousesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def rent_house_params
       params.require(:rent_house).permit(:home_name, :rent, :address, :age, :note, :stations)
-      stations_attributes: [:home_name,:along_the_line, :station_name, :walking_minutes])
+      #stations_attributes:([:home_name,:along_the_line, :station_name, :walking_minutes]))
     end
 end
