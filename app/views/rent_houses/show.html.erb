@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>物件名:</strong>
+  <%= @rent_house.house_name %>
+</p>
+
+<p>
+  <strong>賃料:</strong>
+  <%= @rent_house.rent %>
+</p>
+
+<p>
+  <strong>住所:</strong>
+  <%= @rent_house.address %>
+</p>
+
+<p>
+  <strong>築年数:</strong>
+  <%= @rent_house.age %>
+</p>
+
+<p>
+  <strong>備考:</strong>
+  <%= @rent_house.note %>
+</p>
+
+<p>
+  <strong>駅名:</strong>
+  <%= @rent_house.stations %>
+</p>
+
+<%= link_to '編集', edit_rent_house_path(@rent_house) %> |
+<%= link_to '戻る', rent_houses_path %>
