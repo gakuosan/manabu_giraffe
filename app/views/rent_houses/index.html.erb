@@ -1,4 +1,4 @@
-<p> id="notice"><%= notice %></p>
+<p> <id="notice"><%= notice %></p>
 
 <h1>物権情報</h1>
 
@@ -25,7 +25,7 @@
         <td><%= rent_house.note %></td>
         <td><%= rent_house.stations %></td>
         <td><%= link_to '詳細', rent_house %></td>
-        <td><%= link_to '編集', edit_rent_house_path(rent_house) %></td>
+        <td><%= link_to '編集', edit_rent_house_path(rent_house.id) %></td>
         <td><%= link_to '削除', rent_house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

@@ -45,28 +45,29 @@
     <%= f.submit %>
   </div>
 
-  <h3>物件情報その１<h3>
+  <h3>物件情報<h3>
 
     <div class="field">
-    <%= form_for(@station) do |form| %>
-    <%= f.label :route_name %><br>
-    <%= f.text_field :route_name %><br><br>
-    <%= f.label :station_name %><br>
-    <%= f.text_field :station_name %><br><br>
-    <%= f.label :walking_minutes %><br>
-    <%= f.number_field :walking_minutes %><br><br>
+    <!-- binding.pry -->
+    <%= form_for(@rent_house) do |form| %>
+    <%= f.label :home_name %><br>
+    <%= f.text_field :home_name %><br><br>
+    <%= f.label :address %><br>
+    <%= f.text_field :address %><br><br>
+    <%= f.label :age %><br>
+    <%= f.number_field :age %><br><br>
   <% end %>
 
-   <h3>最寄り駅情報2</h3>
+   <h3>最寄り駅情報</h3>
 
       <div class="field">
-         <%= form_for(@station) do |form| %>
-          <%= f.label :route_name %><br>
-          <%= f.text_field :route_name %><br><br>
-          <%= f.label :station_name %><br>
-          <%= f.text_field :station_name %><br><br>
-          <%= f.label :walking_minutes %><br>
-          <%= f.number_field :walking_minutes %><br><br>
+         <%= form_for(@station) do |f| %>
+         <%= f.label :along_the_line %><br>
+         <%= f.text_field :along_the_line %><br><br>
+         <%= f.label :station_name %><br>
+         <%= f.text_field :station_name %><br><br>
+         <%= f.label :walking_minutes %><br>
+         <%= f.number_field :walking_minutes %><br><br>
         <% end %>
       </div>
 　　<% end %>

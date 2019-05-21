@@ -15,7 +15,9 @@ class RentHousesController < ApplicationController
   # GET /rent_houses/new
   def new
     @rent_house = RentHouse.new
-    2.times { @rent_house.stations.build }
+    @station = Station.new
+
+    # 2.times { @rent_house.stations.build }
   end
 
   # GET /rent_houses/1/edit
