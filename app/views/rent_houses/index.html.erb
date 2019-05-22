@@ -18,12 +18,7 @@
   <tbody>
     <% @rent_houses.each do |rent_house| %>
       <tr>
-        <td><%= rent_house.home_name %></td>
-        <td><%= rent_house.rent.to_s%> 円</td>
-        <td><%= rent_house.address %></td>
-        <td><%= rent_house.age.to_s %>年</td>
-        <td><%= rent_house.note %></td>
-        <td><%= rent_house.stations %></td>
+
         <td><%= link_to '詳細', rent_house %></td>
         <td><%= link_to '編集', edit_rent_house_path(rent_house.id) %></td>
         <td><%= link_to '削除', rent_house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
