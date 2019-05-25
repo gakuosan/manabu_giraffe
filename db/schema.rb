@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190521094907) do
+ActiveRecord::Schema.define(version: 20190525043402) do
 
   create_table "rent_houses", force: :cascade do |t|
     t.string   "home_name"
     t.string   "rent"
     t.string   "address"
-    t.integer  "age"
+    t.string   "age"
     t.string   "note"
     t.string   "stations"
     t.datetime "created_at", null: false
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20190521094907) do
     t.string   "along_the_line"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "title"
     t.integer  "rent_house_id"
   end
 
