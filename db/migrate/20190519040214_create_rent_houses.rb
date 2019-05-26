@@ -6,7 +6,6 @@ class CreateRentHouses < ActiveRecord::Migration[5.0]
       t.string :address
       t.integer :age
       t.string :note
-      t.string :stations
 
       t.timestamps
     end

@@ -10,28 +10,28 @@ class RentHousesController < ApplicationController
   # GET /rent_houses/1
   # GET /rent_houses/1.json
   def show
+    @stations = Station.where(rent_house_id: set_rent_house.id).all
   end
 
   # GET /rent_houses/new
   def new
     @rent_house = RentHouse.new
-    @station = Station.new
-
-    # 2.times { @rent_house.stations.build }
+    # binding.pry
+    2.times { @rent_house.stations.new }
   end
 
   # GET /rent_houses/1/edit
   def edit
-
   end
 
   # POST /rent_houses
   # POST /rent_houses.json
   def create
     @rent_house = RentHouse.new(rent_house_params)
-
+    # binding.pry
     respond_to do |format|
       if @rent_house.save
+      # binding.pry
         format.html { redirect_to @rent_house, notice: 'Rent house was successfully created.' }
         format.json { render :show, status: :created, location: @rent_house }
       else
@@ -40,6 +40,7 @@ class RentHousesController < ApplicationController
       end
     end
   end
+
 
   # PATCH/PUT /rent_houses/1
   # PATCH/PUT /rent_houses/1.json
@@ -70,7 +71,7 @@ class RentHousesController < ApplicationController
     render :new if @rent_house.invalid?
   end
 
-  private
+    private
     # Use callbacks to share common setup or constraints between actions.
     def set_rent_house
       @rent_house = RentHouse.find(params[:id])
@@ -78,7 +79,7 @@ class RentHousesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rent_house_params
-      params.require(:rent_house).permit(:home_name, :rent, :address, :age, :note, :stations)
-      # stations_attributes:([:home_name,:along_the_line, :station_name, :walking_minutes]))
-    end
+      params.require(:rent_house).permit(:home_name, :rent, :address, :age, :note, stations_attributes:
+        [:along_the_line, :station_name, :walking_minutes])
+  end
 end

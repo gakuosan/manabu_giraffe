@@ -2,7 +2,7 @@
 
 <p>
   <strong>物件名:</strong>
-  <%= @rent_house.house_name %>
+  <%= @rent_house.home_name %>
 </p>
 
 <p>
@@ -25,10 +25,23 @@
   <%= @rent_house.note %>
 </p>
 
+
+  <% @rent_house.stations.each do |station| %>
+<p>
+  <strong>路線名:</strong>
+    <%= station.along_the_line %>
+</p>
+
 <p>
   <strong>駅名:</strong>
-  <%= @rent_house.stations %>
+    <%= station.station_name %>
 </p>
+
+<p>
+  <strong>徒歩本数:</strong>
+    <%= station.walking_minutes %>
+</p>　
+<% end %>
 
 <%= link_to '編集', edit_rent_house_path(@rent_house) %> |
 <%= link_to '戻る', rent_houses_path %>

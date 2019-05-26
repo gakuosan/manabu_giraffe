@@ -1,11 +1,11 @@
 <%= form_for(@rent_house) do |f| %>
-  <% if rent_house.errors.any? %>
+  <% if @rent_house.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(rent_house.errors.count, "error") %>
+      <h2><%= pluralize(@rent_house.errors.count, "error") %>
         prohibited this rent_house from being saved:</h2>
 
       <ul>
-      <% rent_house.errors.full_messages.each do |message| %>
+      <% @rent_house.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -34,6 +34,9 @@
     <br><br>
 
     <hr>
+
+
+
 
   <%= f.fields_for :stations do |f| %>
     <h3>最寄り駅1</h3>
