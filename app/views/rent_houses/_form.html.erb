@@ -1,11 +1,10 @@
-<%= form_for(@rent_house) do |f| %>
-  <% if @rent_house.errors.any? %>
+<%= form_for(rent_house) do |f| %>
+  <% if rent_house.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@rent_house.errors.count, "error") %>
-        prohibited this rent_house from being saved:</h2>
+      <h2><%= pluralize(rent_house.errors.count, "error") %> prohibited this rent_house from being saved:</h2>
 
       <ul>
-      <% @rent_house.errors.full_messages.each do |message| %>
+      <% rent_house.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -13,53 +12,62 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :物件名 %><br>
+    <%= f.label :home_name %>
     <%= f.text_field :home_name %>
-    <br><br>
+  </div>
 
-    <%= f.label :賃料 %><br>
-    <%= f.number_field :rent %><%= "円" %>
-    <br><br>
+  <div class="field">
+    <%= f.label :rent %>
+    <%= f.text_field :rent %>
+  </div>
 
-    <%= f.label :住所 %><br>
-    <%= f.text_area :address %>
-    <br><br>
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
 
-    <%= f.label :築年数 %><br>
-    <%= f.number_field :age %><%= "年" %>
-    <br><br>
+  <div class="field">
+    <%= f.label :age %>
+    <%= f.number_field :age %>
+  </div>
 
-    <%= f.label :備考 %><br>
-    <%= f.text_area :note %>
-    <br><br>
+  <div class="field">
+    <%= f.label :note %>
+    <%= f.text_field :note %>
+  </div>
 
-    <hr>
-
-
-
-
-  <%= f.fields_for :stations do |f| %>
-    <h3>最寄り駅1</h3>
-    <%= df.label :路線名 %><br>
-    <%= df.text_field :along_the_line %><br><br>
-    <%= df.label :駅名 %><br>
-    <%= df.text_field :station_name %><br><br>
-    <%= df.label :徒歩分数 %><br>
-    <%= df.number_field :walking_minutes %><%= "分" %><br><br>
-  <% end %>
-
-  <%= f.fields_for :stations do |f| %>
-    <h3>最寄り駅2</h3>
-    <%= df.label :路線名 %><br>
-    <%= df.text_field :along_the_line %><br><br>
-    <%= df.label :駅名 %><br>
-    <%= df.text_field :station_name %><br><br>
-    <%= df.label :徒歩分数 %><br>
-    <%= df.number_field :walking_minutes %><%= "分" %><br><br>
-  <% end %>
-
+  <div class="field">
+    <%= f.label :stations %>
+    <%= f.text_field :stations %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+
+  <h3>物件情報その１<h3>
+
+    <div class="field">
+    <%= form_for(@station) do |form| %>
+    <%= f.label :route_name %><br>
+    <%= f.text_field :route_name %><br><br>
+    <%= f.label :station_name %><br>
+    <%= f.text_field :station_name %><br><br>
+    <%= f.label :walking_minutes %><br>
+    <%= f.number_field :walking_minutes %><br><br>
+
+  <% end %>
+
+   <h3>最寄り駅情報2</h3>
+
+      <div class="field">
+         <%= form_for(@station) do |form| %>
+          <%= f.label :route_name %><br>
+          <%= f.text_field :route_name %><br><br>
+          <%= f.label :station_name %><br>
+          <%= f.text_field :station_name %><br><br>
+          <%= f.label :walking_minutes %><br>
+          <%= f.number_field :walking_minutes %><br><br>
+        <% end %>
+      </div>
+　　<% end %>

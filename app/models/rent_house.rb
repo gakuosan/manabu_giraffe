@@ -7,5 +7,4 @@ class RentHouse < ApplicationRecord
   validates :age, presence: true
   validates :note, presence: true
   validates :stations, presence: true
-  belongs_to :stations
 end
