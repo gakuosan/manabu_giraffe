@@ -16,7 +16,6 @@ class RentHousesController < ApplicationController
   # GET /rent_houses/new
   def new
     @rent_house = RentHouse.new
-    # binding.pry
     2.times { @rent_house.stations.new }
   end
 
@@ -28,10 +27,8 @@ class RentHousesController < ApplicationController
   # POST /rent_houses.json
   def create
     @rent_house = RentHouse.new(rent_house_params)
-    # binding.pry
     respond_to do |format|
       if @rent_house.save
-      # binding.pry
         format.html { redirect_to @rent_house, notice: 'Rent house was successfully created.' }
         format.json { render :show, status: :created, location: @rent_house }
       else
