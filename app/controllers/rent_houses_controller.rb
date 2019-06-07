@@ -16,7 +16,7 @@ class RentHousesController < ApplicationController
   # GET /rent_houses/new
   def new
     @rent_house = RentHouse.new
-    1.times { @rent_house.stations.new }
+    2.times { @rent_house.stations.new }
   end
 
   # GET /rent_houses/1/edit
@@ -42,7 +42,7 @@ class RentHousesController < ApplicationController
   # PATCH/PUT /rent_houses/1
   # PATCH/PUT /rent_houses/1.json
   def update
-
+    binding.pry
     respond_to do |format|
       if @rent_house.update(rent_house_params)
         format.html { redirect_to @rent_house, notice: 'Rent house was successfully updated.' }
