@@ -42,9 +42,10 @@ class RentHousesController < ApplicationController
   # PATCH/PUT /rent_houses/1
   # PATCH/PUT /rent_houses/1.json
   def update
-    binding.pry
+    #binding.pry
     respond_to do |format|
       if @rent_house.update(rent_house_params)
+      #binding.pry
         format.html { redirect_to @rent_house, notice: 'Rent house was successfully updated.' }
         format.json { render :show, status: :ok, location: @rent_house }
       else
@@ -65,7 +66,7 @@ class RentHousesController < ApplicationController
   end
 
   def confirm
-    @rent_house = RentHouse.new(blog_params)
+    @rent_house = RentHouse.new(rent_house_params)
     render :new if @rent_house.invalid?
   end
 

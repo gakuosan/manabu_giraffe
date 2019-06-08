@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_05_223919) do
+ActiveRecord::Schema.define(version: 2019_06_08_055234) do
 
   create_table "rent_houses", force: :cascade do |t|
     t.string "home_name"
@@ -29,8 +29,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_223919) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "rent_house_id"
-    t.integer "stations_id"
-    t.index ["stations_id"], name: "index_stations_on_stations_id"
+    t.index ["rent_house_id"], name: "index_stations_on_rent_house_id"
   end
 
 end

@@ -1,6 +1,58 @@
-<h1>登録</h1>
-<h2>物件登録</h2>
-<%= render 'form', rent_house: @rent_house %>
+<h1>物件登録</h1>
 
-<%= link_to '詳細', @rent_house %> |
-<%= link_to '戻る', rent_houses_path %>
+<%= form_for @rent_house , url: rent_houses_path do |f| %>
+  <div class="form-control">
+    <%= f.label :home_name, "物件名" %><br />
+    <%= f.text_field :home_name %>
+  </div>
+
+  <div class="form-control">
+    <%= f.label :rent, "賃料" %><br />
+    <%= f.text_field :rent %>円
+  </div>
+
+  <div class="form-control">
+    <%= f.label :address, "住所" %><br />
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="form-control">
+    <%= f.label :age, "築年数" %><br />
+    <%= f.text_field :age %>年
+  </div>
+
+  <div class="form-control">
+    <%= f.label :note, "備考" %><br />
+    <%= f.text_area :note %>
+  </div>
+  <hr />
+
+
+  <% x = 1%>
+    <%= f.fields_for :stations do |st| %>
+
+    <h3>
+      <%=  "最寄り駅" + x.to_s %>
+    </h3>
+
+      <div class="form-control">
+        <%= st.label :along_the_line, "路線名" %><br />
+        <%= st.text_field :along_the_line %>
+      </div>
+
+      <div class="form-control">
+        <%= st.label :station_name, "駅名" %><br />
+        <%= st.text_field :station_name %>
+      </div>
+
+      <div class="form-control">
+        <%= st.label :walking_minutes, "徒歩分数" %><br />
+          <%= st.text_field :walking_minutes %>分
+      </div>
+      <% x += 1%>
+    <% end %>
+
+  <%= f.submit "登録する" %>
+  <% end %>
+<br />
+<%= link_to "戻る", :back %>
