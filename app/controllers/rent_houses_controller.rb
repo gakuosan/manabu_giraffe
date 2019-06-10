@@ -45,7 +45,6 @@ class RentHousesController < ApplicationController
     #binding.pry
     respond_to do |format|
       if @rent_house.update(rent_house_params)
-      #binding.pry
         format.html { redirect_to @rent_house, notice: 'Rent house was successfully updated.' }
         format.json { render :show, status: :ok, location: @rent_house }
       else
@@ -66,7 +65,7 @@ class RentHousesController < ApplicationController
   end
 
   def confirm
-    @rent_house = RentHouse.new(rent_house_params)
+    @rent_house = RentHouse.new(blog_params)
     render :new if @rent_house.invalid?
   end
 
@@ -79,6 +78,6 @@ class RentHousesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def rent_house_params
       params.require(:rent_house).permit(:home_name, :rent, :address, :age, :note, stations_attributes:
-        [:along_the_line, :station_name, :walking_minutes])
+        [:id,:rent_house_id,:along_the_line, :station_name, :walking_minutes])
   end
 end
